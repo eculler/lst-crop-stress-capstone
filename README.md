@@ -1,5 +1,6 @@
-# ea-lst-capstone
-Shared repo for files related to the Earth Analytics 2023 Capstone.
+# Remotely Sensed Crop Stress Early Indicator
+
+Shared repo for the Earth Analytics 2023 Capstone.
 
 **Remember to pull changes before beginning to code!**
 
@@ -18,7 +19,9 @@ Add your Hydrosat Fusion Hub account credentials to the `secrets/` folder in a f
 }
 ```
 
-
-
 See the [Hydrosat Fusion Hub Documentation](https://hydrosat.github.io/fusion-hub-docs/intro.html) for additional guidance.
 
+### Contributors
+- [Erik Anderson](https://github.com/eriktuck)
+- [Stepan Bryleev](https://github.com/StepanBryleev)
+- [Tyler Cruikshanks](https://github.com/tcruicks)
