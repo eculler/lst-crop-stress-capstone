@@ -24,4 +24,4 @@ See the [Hydrosat Fusion Hub Documentation](https://hydrosat.github.io/fusion-hu
 ### Contributors
 - [Erik Anderson](https://github.com/eriktuck)
 - [Stepan Bryleev](https://github.com/StepanBryleev)
-- [Tyler Cruikshanks](https://github.com/tcruicks)
+- [Tyler Cruikshank](https://github.com/tcruicks)
