@@ -1,5 +1,21 @@
 def get_hrrr_point_data(lat, lon, start, days):
+    ''' 
+    Fetch met data from the HRRR model system.
 
+    Parameters:
+    ----------
+    lat, lon: float
+        Coords from which to pull grid cell data. 
+    start: str
+        This is the start date for which data will be retrieved.
+    days: int
+        Number of days of data to retrieve.
+
+    Return:
+    -------
+    ds_point: xarray dataset
+        Met data for specified point.
+    '''
     import pandas
     from herbie import FastHerbie
     lat = 42
@@ -22,7 +38,7 @@ def get_hrrr_point_data(lat, lon, start, days):
     # Read a subset of the data with xarray.
     ds = FH.xarray("TMP:2 m", remove_grib=False)
 
-    # Get value nearest single point
+    # Get data values nearest single point
     ds_point = ds.herbie.nearest_points(points=(lon, lat))
 
     return (ds_point)
