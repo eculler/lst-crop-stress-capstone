@@ -18,14 +18,15 @@ def get_hrrr_point_data(lat, lon, start, days):
     '''
     import pandas
     from herbie import FastHerbie
+
     lat = 42
     lon = -93.7
-    start_date = "2020-04-01 00:00"
+    sd = "2020-07-01 00:00"
 
     # Create a range of dates
     DATES = pandas.date_range(
-        start=start_date,
-        periods=29,
+        start=sd,
+        periods=31,
         freq="1D",
     )
 
