@@ -26,7 +26,7 @@ def get_hrrr_point_data(lat, lon, start, days):
     # Create a range of dates
     DATES = pandas.date_range(
         start=sd,
-        periods=31,
+        periods=days,
         freq="1D",
     )
 
