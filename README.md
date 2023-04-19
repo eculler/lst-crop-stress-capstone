@@ -6,7 +6,7 @@ Shared repo for the Earth Analytics 2023 Capstone.
 
 ### Environment
 
-We recommend setting up a conda environment using the [geospatial](https://geospatial.gishub.org/) package. The `environment.yml` file is included primarily for documentation.
+We recommend setting up a conda environment using the [geospatial](https://geospatial.gishub.org/) package (follow the instructions to [install with mamba](https://geospatial.gishub.org/installation/#using-mamba)). The `environment.yml` file is included primarily for documentation.
 
 ### Credentials
 
