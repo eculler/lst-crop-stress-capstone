@@ -503,13 +503,14 @@ class FH_Hydrosat(object):
     
     def point_time_series_from_items(self, pt, tol=20, nproc=2, pad=None, band=0):
         """ construct a pandas DataFrame which is a time series for a single pixel across the search result."""
-        
+   
         # check pt param type
         if type(pt) is not Point:
             raise(TypeError, "input pt must be of type shapely.geometry.Point")
             
         point_df = gpd.GeoDataFrame({'geometry':[pt]}, crs=CRS.from_epsg(4326))
-        
+       
+
         # project the point to raster CRS
         ds = rxr.open_rasterio(self.item_href[0])
         raster_crs = CRS.from_wkt(ds.spatial_ref.crs_wkt)
@@ -529,7 +530,7 @@ class FH_Hydrosat(object):
             print(f'using {nproc} processes to sample {len(self.item_href)} assets')
             vals = pool.map(sample_func, self.item_href)
             
-        return list(vals)
+        return (list(vals))
             
             
     # TODO
