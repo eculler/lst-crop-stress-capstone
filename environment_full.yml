@@ -65,4 +65,10 @@ dependencies:
   - black
   - sphinx-panels
   - herbie-data
+  pip:
+    - pystac
+    - pystac_client
+    - odc-stac
+    - ffmpeg-python
+    - SynopticPy
 prefix: /opt/miniconda3/envs/hydrosat-analytics-python
