@@ -3,9 +3,6 @@ secrets/*
 .vscode/
 .ipynb_checkpoints
 
-# creds
-tyler/fusion-hub-code/creds.json
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
