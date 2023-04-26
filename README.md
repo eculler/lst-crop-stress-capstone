@@ -1,5 +1,7 @@
 # Remotely Sensed Crop Stress Early Indicator
 
+[![DOI](https://zenodo.org/badge/627146632.svg)](https://zenodo.org/badge/latestdoi/627146632)
+
 Shared repo for the Earth Analytics 2023 Capstone.
 
 **Remember to pull changes before beginning to code!**
