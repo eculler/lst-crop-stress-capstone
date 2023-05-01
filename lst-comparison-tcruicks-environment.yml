@@ -1,0 +1,11 @@
+name: hydrosat
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - mamba
+  - geospatial
+  - ca-certificates
+  - certifi
+  - openssl
+  - herbie-data

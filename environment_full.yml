@@ -1,4 +1,4 @@
-name: hydrosat-analytics-python
+name: hydrosat-test
 channels:
   - defaults
 dependencies:
