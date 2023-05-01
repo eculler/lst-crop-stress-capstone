@@ -28,7 +28,7 @@ We thank Joe McGlinchy of Hydrosat for providing project guidance and data acces
 An environment.yml file is provided for creating the environment needed to run this notebook.  After cloning the directory to your computer, create and activate the conda environment with the following commands in a terminal shell:
 
 ```bash
-conda env create -f environment.yml
+conda env create -f lst-comparison-tcruicks-environment.yml
 conda activate earth-analytics-python
 ```
 
@@ -48,6 +48,8 @@ See the [Hydrosat Fusion Hub Documentation](https://hydrosat.github.io/fusion-hu
 
 There are two to three sources of meteorological data available.  1) A comma delimited .csv file.  2) Use HRRR model data.  3) Use Synoptic Data API.  This notebook is currently (April 2023) download and using HRRR data.  The functionality is built in to the notebook.  All meteorological data is contained in the /data directory.
 
-> Gao, F. Masek, J. Schwaller, M. Hall, F. 2006. On the Blending of Landsat and MODIS Surface Reflectance: Predicting Landsat Surface Reflectance. IEE Transaction on Geoscience and Remote Sensing Vol 44, No 8.
->
-> Gao, F. Kustas, W. Anderson, M. 2012. A Data Mining Approach for Sharpening Thermal Satellite Imagery Over Land. Remote Sensing. doi: 10.3390/rs4113287.
+### Project References
+
+Gao, F. Masek, J. Schwaller, M. Hall, F. 2006. On the Blending of Landsat and MODIS Surface Reflectance: Predicting Landsat Surface Reflectance. IEE Transaction on Geoscience and Remote Sensing Vol 44, No 8.
+
+Gao, F. Kustas, W. Anderson, M. 2012. A Data Mining Approach for Sharpening Thermal Satellite Imagery Over Land. Remote Sensing. doi: 10.3390/rs4113287.
