@@ -27,8 +27,10 @@ We thank Joe McGlinchy of Hydrosat for providing project guidance and data acces
 
 An environment.yml file is provided for creating the environment needed to run this notebook.  After cloning the directory to your computer, create and activate the conda environment with the following commands in a terminal shell:
 
->>conda env create -f environment.yml.
->>conda activate earth-analytics-python
+```bash
+conda env create -f environment.yml
+conda activate earth-analytics-python
+```
 
 The environment must be activated before running the notebook.
 
