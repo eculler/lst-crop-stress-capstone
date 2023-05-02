@@ -1,0 +1,11 @@
+name: ea-lst-alpha
+channels:
+  - defaults
+dependencies:
+  - herbie-data
+  - geopandas
+  - odc-stac
+  - rioxarray
+  - ipykernel
+  - pystac-client
+prefix: C:\Users\Erik_Anderson\miniconda3\envs\ea-lst-alpha
