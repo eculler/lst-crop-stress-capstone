@@ -29,7 +29,7 @@ An environment.yml file is provided for creating the environment needed to run t
 
 ```bash
 conda env create -f lst-comparison-tcruicks-environment.yml
-conda activate earth-analytics-python
+conda activate hydrosat
 ```
 
 The environment must be activated before running the notebook.
