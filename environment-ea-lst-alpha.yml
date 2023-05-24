@@ -1,7 +1,9 @@
 name: ea-lst-alpha
 channels:
+  - conda-forge
   - defaults
 dependencies:
+  - python
   - herbie-data
   - geopandas
   - odc-stac
