@@ -10,4 +10,5 @@ dependencies:
   - rioxarray
   - ipykernel
   - pystac-client
+  - contextily
 prefix: C:\Users\Erik_Anderson\miniconda3\envs\ea-lst-alpha
