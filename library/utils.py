@@ -5,17 +5,17 @@ import pandas as pd
 
 # Define function to process Ameriflux data
 def read_ameriflux(data_path):
-    df = pd.read_csv(data_path, header=2, na_values=[-9999])
+    df = pd.read_csv(data_path, header=0, na_values=[-9999])
 
     # Save value column names
     value_cols = df.columns[2:]
 
     # Convert timestamp objects
     df['start'] = df['TIMESTAMP_START'].apply(
-        lambda x: datetime.strptime(str(x), "%Y%m%d%H%M")
+        lambda x: datetime.strptime(str(x), "%Y%m%d%H%M.0")
         )
     df['end'] = df['TIMESTAMP_END'].apply(
-        lambda x: datetime.strptime(str(x), "%Y%m%d%H%M")
+        lambda x: datetime.strptime(str(x), "%Y%m%d%H%M.0")
         )
 
     # Drop NA
