@@ -1,0 +1,28 @@
+metpoints:
+  alfalfa: [-121.4993, 38.0992]
+  corn: [-121.5351, 38.1091] 
+
+field_centers:
+  alfalfa: [-121.5015, 38.0994]
+  corn: [-121.5360, 38.1095]
+  
+aoi_bbox:
+  corn: [-121.5027, 38.0986, -121.5003, 38.1000]
+
+aoi_coordinates:
+    alfalfa: [
+        [-121.504670, 38.100631],
+        [-121.501246, 38.101757],
+        [-121.498513, 38.098168],
+        [-121.501920, 38.097003]
+    ]
+
+data_params:
+  alfalfa: 
+    file_name: US-Bi1_HH_201608130000_202301010000.csv
+    header: 0
+    na_values: [-9999]
+  corn: 
+    file_name: US-Bi2_HH_201704270000_202301010000.csv
+    header: 0
+    na_values: [-9999]
