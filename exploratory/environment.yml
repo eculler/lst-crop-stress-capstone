@@ -1,0 +1,12 @@
+name: geo
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - mamba
+  - geopandas
+  - geospatial
+  - ca-certificates
+  - certifi
+  - openssl
+prefix: C:\Users\Erik_Anderson\miniconda3\envs\geo
