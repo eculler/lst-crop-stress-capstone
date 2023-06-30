@@ -4,8 +4,8 @@ import pandas as pd
 
 
 # Define function to process Ameriflux data
-def read_ameriflux(data_path):
-    df = pd.read_csv(data_path, header=0, na_values=[-9999])
+def read_ameriflux(data_path, header=0, na_values=[-9999]):
+    df = pd.read_csv(data_path, header=header, na_values=na_values)
 
     # Save value column names
     value_cols = df.columns[2:]
