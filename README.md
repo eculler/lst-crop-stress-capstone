@@ -2,17 +2,9 @@
 
 Can satellite remote sensing detect early stage crop stress at high resolution across whole-farm scale?
 
-Modern agribusiness often employs targeted technology to optimize cropland productivity using modern information and communication technologies at fine spatial resolution (within-field scale). High resolution remotely sensed data of soil conditions and vegetation health provides near real-time information that informs adaptive irrigation and fertilization technology. NDVI is a commonly used remotely sensed index that provides data on the "greenness" or health of crop vegetation.  However, the index is a lagging indicator of crop stress because water or heat stress occurs prior to the degradation of vegetation greenness.
+Hydrosat produces a proprietary "fused" thermal infrared land surface temperature (LST) imagery product using sharpening and interpolation algorithms to produce near daily sub-30 m resolution imagery from a combination of MODIS, Sentinel and Landsat imaging platforms. This project aims to explore the input data and intermediate outputs of the algorithms used to produce the LST product in order to detect errors potentially introduced by data quality issues or the application of the algorithms while also exploring applications within agricultural contexts.
 
-Hydrosat provides a proprietary "fused" thermal infrared land surface temperature (LST) imagery product that is downscaled to 20 m resolution using a combination of MODIS, Sentinel and Landsat imaging platforms. LST provides a leading indication of crop stress relative to NDVI. Hydrosat utilizes a data mining approach for sharpening thermal satellite imagery (DMS) (Gao, F. 2012) and a separate algorithm for interpolating land surface temperature between measurement points (STARFM) (Gao, F 2006). This high resolution fused product is produced daily and presents an added value opportunity for agribusiness
-
-This project aims to support this effort by exploring the relationship between land surface temperature and canopy temperature, an index known as Canopy Air Temperature Index (CATD), to evaluate the availability of moisture to the crops. When crop moisture is limited, leaf stomata close which prevents cooling of the leaf surface and leads to a larger values of CATD.
-
-As of May 1, 2023, this notebook does the following:
-1. Extracts and plots a time-series of the four fused LST image components and the fused LST.
-2. Extracts and plots NDVI a time-series of a fused NDVI index.
-3. Extracts, downloads, and plots air temperature data from the HRRR model.
-4. Computes and plots a time-series of CATD for the four fused LST image components and the fused LST..
+See the blog post [here](blog.html).
 
 # Collaborators and Acknowledgements
 
@@ -23,20 +15,19 @@ We thank Joe McGlinchy of Hydrosat for providing project guidance and data acces
 
 [![DOI](https://zenodo.org/badge/627146632.svg)](https://zenodo.org/badge/latestdoi/627146632)
 
-### Environment Requirements
+# Set up environment
+To reproduce this workflow, use the provided `environment.yml` file to create a `conda` environment (you should already have Python and `conda` installed on your system).
 
-An environment.yml file is provided for creating the environment needed to run this notebook.  After cloning the directory to your computer, create and activate the conda environment with the following commands in a terminal shell:
+After cloning this directory to your system, use the following `bash` commands to create and activate the environment:
 
 ```bash
-conda env create -f lst-comparison-tcruicks-environment.yml
-conda activate hydrosat
+conda env create -f environment.yml
+conda activate ea-lst
 ```
 
-The environment must be activated before running the notebook.
+# Access data
 
-### Data Access
-
-For satellite image access you must receive Hydrosat Fusion hub account credentials prior to running this project.  No data is stored locally.  Add your Hydrosat Fusion Hub account credentials to the `secrets/` folder in a file called `creds.json` with the format:
+For access to Hydrosat's proprietary products, you must receive credentials using the instructions described at the [Hydrosat Fusion Hub](https://hydrosat.github.io/fusion-hub-docs/intro.html). Add your credentials to the `secrets/` folder in a file called `creds.json` with the format:
 
 ```json
 {
@@ -46,10 +37,19 @@ For satellite image access you must receive Hydrosat Fusion hub account credenti
 ```
 See the [Hydrosat Fusion Hub Documentation](https://hydrosat.github.io/fusion-hub-docs/intro.html) for additional guidance.
 
-There are two to three sources of meteorological data available.  1) A comma delimited .csv file.  2) Use HRRR model data.  3) Use Synoptic Data API.  This notebook is currently (April 2023) download and using HRRR data.  The functionality is built in to the notebook.  All meteorological data is contained in the /data directory.
+Meteorological data are provided by [Ameriflux](https://ameriflux.lbl.gov/) and included in the project's `data/Ameriflux` directory.
 
-### Project References
+# Workflows
+Follow the instructions below to reproduce the workflows in the notebook `blog.ipynb` and convert the Jupyter Notebook to an HTML report.
 
-Gao, F. Masek, J. Schwaller, M. Hall, F. 2006. On the Blending of Landsat and MODIS Surface Reflectance: Predicting Landsat Surface Reflectance. IEE Transaction on Geoscience and Remote Sensing Vol 44, No 8.
+## Run the analysis
+To reproduce the analysis in `blog.ipynb`, first follow the instructions to set up the environment and access data, described above. 
 
-Gao, F. Kustas, W. Anderson, M. 2012. A Data Mining Approach for Sharpening Thermal Satellite Imagery Over Land. Remote Sensing. doi: 10.3390/rs4113287.
+This project uses a configuration file to facilitate repeat workflows on new Ameriflux meteorological towers. To repeat the analysis on a new met tower, add the necessary information to the file `config.yml` by copy/pasting an existing configuration section and updating with the necessary parameters. You must include the longitude, latitude for the meteorological tower center point, the the longitude, latitude for the ag field center point, either a bounding box (list of four coordinates) or area of interest (list of four longitude, latitude pairs), and the parameters for reading the Ameriflux data. In the notebook, change the `crop_type` variable to match. Note that Hydrosat does not currently include coverage for the entire CONUS area.
+
+## Convert to HTML report
+To convert the file `blog.ipynb` to an HTML report, you must have the library `nbconvert` installed (note that this library is not included in the environment.yml file). Read the [documentation](https://nbconvert.readthedocs.io/en/latest/) for installation instructions. Use the following bash command to convert the notebook:
+
+```bash
+jupyter nbconvert --to html_embed --no-input notebook-name.ipynb
+```
