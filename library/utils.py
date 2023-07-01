@@ -3,9 +3,32 @@ from datetime import datetime
 import pandas as pd
 
 
-# Define function to process Ameriflux data
 def read_ameriflux(data_path, header=0, na_values=[-9999]):
-    df = pd.read_csv(data_path, header=header, na_values=na_values)
+    """
+    Reads a standard Ameriflux data file as csv.
+
+    Converts timestamps to datetime, adjusts time to UTC, 
+    drops NA values, and sets the start date as index.
+
+    Parameters
+    ----------
+    data_path: str
+        Full file path
+    header: int
+        Row in which header is found
+    na_values: list
+        List of null values for the dataset
+    
+    Returns
+    -------
+    DataFrame
+        The dataset as a pandas DataFrame
+    """
+    # Read data if path exists
+    try:
+        df = pd.read_csv(data_path, header=header, na_values=na_values)
+    except (FileNotFoundError):
+        print(f'File at path {data_path} not found')
 
     # Save value column names
     value_cols = df.columns[2:]
