@@ -1,6 +1,9 @@
 from datetime import datetime
 
+import numpy as np
 import pandas as pd
+
+from library.FH_Hydrosat import FH_Hydrosat
 
 
 def read_ameriflux(data_path, header=0, na_values=[-9999]):
@@ -50,3 +53,34 @@ def read_ameriflux(data_path, header=0, na_values=[-9999]):
     df = df[col_order]
 
     return df
+
+
+def ndvi_from_collection(items, geom_point, tolerance, red_band, nir_band, 
+                         name):
+    assets = items[0].to_dict()['assets'].keys()
+    if len(items) > 0 and 'surface_reflectance' in assets:
+        res_full = FH_Hydrosat(items, asset='surface_reflectance')
+        res_dt = res_full.datetime
+
+        red_ts = res_full.point_time_series_from_items(
+            geom_point, tol=tolerance, nproc=6, band=red_band)
+        nir_ts = res_full.point_time_series_from_items(
+            geom_point, tol=tolerance, nproc=6, band=nir_band)
+
+        ndvi_ts = (
+            (np.array(nir_ts) - np.array(red_ts)) 
+            / (np.array(nir_ts) + np.array(red_ts))
+        )
+        ndvi_dt = res_dt
+
+        ndvi_df = pd.DataFrame(
+            {'ndvi': ndvi_ts,
+             'datetime': pd.to_datetime(ndvi_dt)}).sort_values(by='datetime')
+        ndvi_df.index = (
+            pd.to_datetime(ndvi_df['datetime'].dt.strftime('%Y-%m-%d'))
+        )
+
+        ndvi_series = ndvi_df['ndvi'].astype('float')
+        ndvi_series.name = name
+
+        return ndvi_series
